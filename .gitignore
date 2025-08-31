@@ -1,0 +1,14 @@
+# Ignore Pi-hole runtime data
+dns/pihole/etc-pihole/
+dns/pihole/etc-dnsmasq.d/
+
+# Ignore backups (nebula-sync target)
+dns/backups/
+
+# Ignore any Docker volumes or tmp
+**/var/
+**/*.log
+**/*.pid
+
+# Node_modules style caches if ever used
+**/node_modules/

@@ -1,0 +1,8 @@
+pihole/etc-pihole/*
+pihole/etc-dnsmasq.d/*
+unbound/var/*
+unbound/*.log
+backups/*
+*.swp
+*.tmp
+.env
