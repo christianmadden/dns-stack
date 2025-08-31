@@ -1,14 +1,29 @@
-# Ignore Pi-hole runtime data
+# ========================
+# DNS Stack Repo .gitignore
+# ========================
+
+# --- Pi-hole runtime data ---
 dns/pihole/etc-pihole/
 dns/pihole/etc-dnsmasq.d/
 
-# Ignore backups (nebula-sync target)
+# --- Nebula-sync backups ---
 dns/backups/
 
-# Ignore any Docker volumes or tmp
+# --- Unbound runtime data ---
+dns/unbound/root.key
+dns/unbound/var/
+
+# (root.hints is intentionally kept — track if you want consistent seeds)
+
+# --- Docker volumes / temp ---
 **/var/
 **/*.log
 **/*.pid
 
-# Node_modules style caches if ever used
+# --- Node / JS caches (future proofing) ---
 **/node_modules/
+
+# --- macOS cruft ---
+.DS_Store
+.AppleDouble
+.LSOverride
