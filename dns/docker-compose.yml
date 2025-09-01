@@ -10,7 +10,7 @@ services:
       dns_net:
         ipv4_address: 172.29.53.11
     healthcheck:
-      test: ["CMD-SHELL", "nslookup -timeout=2 -retry=1 -port=5335 cloudflare.com 127.0.0.1 >/dev/null 2>&1 || exit 1"]
+      test: ["CMD", "unbound-host", "-p", "5335", "cloudflare.com", "127.0.0.1"]
       interval: 30s
       timeout: 5s
       retries: 3
