@@ -21,7 +21,7 @@ services:
       WEBPASSWORD: "${PIHOLE_PASSWORD}"
       DNSMASQ_LISTENING: "all"
       FTLCONF_REPLY_ADDR4: "${PIHOLE_IP}"
-      PIHOLE_DNS_: "${PIHOLE_DNS_1};${PIHOLE_DNS_2}"
+      PIHOLE_DNS_: "172.29.53.11#5335;${PIHOLE_DNS_BACKUP}"
     volumes:
       - ./pihole/etc-pihole:/etc/pihole
       - ./pihole/etc-dnsmasq.d:/etc/dnsmasq.d
