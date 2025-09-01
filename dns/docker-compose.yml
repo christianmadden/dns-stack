@@ -18,13 +18,13 @@ services:
       - unbound
     environment:
       TZ: "${TZ}"
-      WEBPASSWORD: "${PIHOLE_PASSWORD}"
-      DNSMASQ_LISTENING: "all"
-      FTLCONF_REPLY_ADDR4: "${PIHOLE_IP}"
-      PIHOLE_DNS_: "172.29.53.11#5335"
+      FTLCONF_webserver_api_password: "${PIHOLE_PASSWORD}"
+      FTLCONF_dns_listeningMode: "all"
+      FTLCONF_dns_upstreams: "unbound#5335"
+      FTLCONF_dns_revServers: "true,192.168.1.0/24,192.168.1.1,lan"
     volumes:
       - ./pihole/etc-pihole:/etc/pihole
-      - ./pihole/etc-dnsmasq.d:/etc/dnsmasq.d
+      #- ./pihole/etc-dnsmasq.d:/etc/dnsmasq.d
     ports:
       - "53:53/tcp"
       - "53:53/udp"
@@ -33,9 +33,6 @@ services:
     networks:
       dns_net:
         ipv4_address: 172.29.53.10
-    dns:
-      - 127.0.0.1
-      - 172.29.53.11
 
   watchtower:
     image: containrrr/watchtower:latest
