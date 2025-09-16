@@ -13,6 +13,7 @@ services:
   pihole:
     image: pihole/pihole:latest
     container_name: pihole
+    hostname: "${PIHOLE_HOSTNAME}"
     restart: unless-stopped
     depends_on:
       - unbound
